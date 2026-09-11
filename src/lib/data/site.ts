@@ -43,6 +43,20 @@ export const SITE = {
   },
 };
 
+/**
+ * Xeltrio Technologies is the parent company of hamiaiworks. Kept as a
+ * single source of truth so the external URL and name are never hardcoded
+ * in more than one place (Navbar + /parent-company page both read this).
+ */
+export const PARENT_COMPANY = {
+  name: "Xeltrio Technologies",
+  shortName: "Xeltrio",
+  tagline: "Building Intelligent Solutions for a Better Tomorrow.",
+  url: "https://xeltrio-technologies.vercel.app/",
+  logo: "/images/xeltrio-technologies-logo.jpg",
+  relationshipHref: "/parent-company",
+};
+
 export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -52,7 +66,6 @@ export const NAV_LINKS = [
   { href: "/case-studies", label: "Case Studies" },
   { href: "/pricing", label: "Pricing" },
   { href: "/founder", label: "Founder" },
-  { href: "/blog", label: "Blog" },
 ];
 
 // Audience segments we design for — not client names. See TrustedBy.tsx.
