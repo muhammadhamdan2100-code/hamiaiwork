@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight, Linkedin, Github } from "lucide-react";
-import { NAV_LINKS, SITE } from "@/lib/data/site";
+import { NAV_LINKS, SITE, PARENT_COMPANY } from "@/lib/data/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +38,7 @@ export function Navbar() {
           {SITE.name}
         </Link>
 
-        <div className="hidden lg:flex items-center gap-5 overflow-x-auto">
+        <div className="hidden lg:flex items-center gap-5">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -51,6 +51,17 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={PARENT_COMPANY.relationshipHref}
+            className={cn(
+              "text-sm font-medium transition-colors whitespace-nowrap",
+              pathname === PARENT_COMPANY.relationshipHref
+                ? "text-accent-violet"
+                : "text-accent-violet/80 hover:text-accent-violet"
+            )}
+          >
+            Parent Company
+          </Link>
         </div>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">
@@ -107,6 +118,12 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href={PARENT_COMPANY.relationshipHref}
+                className="text-base font-medium text-accent-violet hover:text-accent-violet/80 transition-colors"
+              >
+                Parent Company
+              </Link>
               <div className="flex items-center gap-4 pt-2">
                 <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-ink-muted hover:text-accent-cyan transition-colors">
                   <Linkedin size={18} />
